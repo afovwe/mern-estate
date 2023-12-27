@@ -24,3 +24,13 @@ app.listen(7000, () => {
 app.use("/api/user", userRouter);
 // Fix: Add a leading slash before "api/user"
 app.use("/api/auth", authRouter);
+
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || 'Internal Server Error';
+  return res.status(statusCode).json({
+    success: false,
+    statusCode,
+    message,
+  });
+});
