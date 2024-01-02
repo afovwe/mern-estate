@@ -1,12 +1,15 @@
+/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import { MdLocationOn } from 'react-icons/md';
 
+// eslint-disable-next-line react/prop-types
 export default function ListingItem({ listing }) {
   return (
     <div className='bg-white shadow-md hover:shadow-lg transition-shadow overflow-hidden rounded-lg w-full sm:w-[330px]'>
       <Link to={`/listing/${listing._id}`}>
         <img
           src={
+            // eslint-disable-next-line react/prop-types
             listing.imageUrls[0] ||
             'https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Sales_Blog/real-estate-business-compressor.jpg?width=595&height=400&name=real-estate-business-compressor.jpg'
           }
